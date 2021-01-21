@@ -1,0 +1,46 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mapa"
+        xmlns:WindowsPresentation="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation" x:Class="mapa.MainWindow"
+        mc:Ignorable="d"
+        Title="s" Height="479.577" Width="1002.817">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="167" Margin="13,31,0,0"/>
+        <RadioButton Content="Поиск объекта" Name="radioButSearch" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="21,66,0,0" Checked="radioButSearch_Checked"/>
+        <RadioButton Content="Создать объект" Name="radioButCreate" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="21,46,0,0" Checked="radioButCreate_Checked"/>
+
+
+        <Grid Name="Maps" Height="Auto" Width="Auto" Margin="279,10,2,8">
+            <WindowsPresentation:GMapControl Name="Map" Loaded="MapLoaded" MouseLeftButtonDown="Map_MouseLeftButtonDown" MouseDoubleClick="Map_MouseDoubleClick" MouseRightButtonDown="Map_MouseRightButtonDown"/>
+
+
+        </Grid>
+        <Label Content="Coursor mode" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="143"/>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="123" Margin="10,110,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label Content="Меню добавления" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top" Width="143"/>
+        <ComboBox x:Name="createmodecombo" HorizontalAlignment="Left" Margin="21,146,0,0" VerticalAlignment="Top" Width="143" SelectionChanged="createmodecombo_SelectionChanged">
+            <ComboBoxItem>Область</ComboBoxItem>
+            <ComboBoxItem>Точка</ComboBoxItem>
+            <ComboBoxItem>Машина</ComboBoxItem>
+            <ComboBoxItem>Человек</ComboBoxItem>
+            <ComboBoxItem>Путь</ComboBoxItem>
+        </ComboBox>
+
+        <TextBox x:Name="createObjectName" HorizontalAlignment="Left" Height="23" Margin="21,173,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Width="143"/>
+        <Button x:Name="addbuttoncreate" Content="Создать" HorizontalAlignment="Left" Margin="21,201,0,0" VerticalAlignment="Top" Width="70" Click="addbuttoncreate_Click"/>
+        <Button x:Name="resetpointcreate" Content="Сброс" HorizontalAlignment="Left" Margin="94,201,0,0" VerticalAlignment="Top" Width="70" Click="resetpointcreate_Click"/>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="201" Margin="10,238,0,0" VerticalAlignment="Top" Width="246"/>
+        <TextBox x:Name="whatineedtofound" HorizontalAlignment="Left" Height="23" Margin="21,249,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="searchButton" Content="Поиск" HorizontalAlignment="Left" Margin="146,249,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="SearchButton_Click"/>
+        <Label Content="Результаты поиска" HorizontalAlignment="Left" Margin="21,277,0,0" VerticalAlignment="Top" Width="218"/>
+        <Label x:Name="clickinfoX" Content="0" HorizontalAlignment="Left" Margin="201,31,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="clickinfoY" Content="0" HorizontalAlignment="Left" Margin="201,63,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="findsresult" HorizontalAlignment="Left" Height="120" Margin="21,308,0,0" VerticalAlignment="Top" Width="218" SelectionChanged="findsresult_SelectionChanged"/>
+        <Label x:Name="distanceToPoints" Content="0" HorizontalAlignment="Left" Margin="201,110,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
